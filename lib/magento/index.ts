@@ -1133,19 +1133,6 @@ export async function getHomePageHtml(handle: string): Promise<MagentoPageCmsBlo
   return response.body;
 }
 
-export async function getDesktopMenu(handle: string): Promise<Menu[]> {
-  const res = await magentoFetch<MagentoMenuOperation>({
-    query: getMenuQuery,
-    next: {
-      tags: ['plp']
-    },
-    variables: {
-      handle
-    }
-  });
-  return res.body.data.categoryList;
-}
-
 export async function getMenu(handle: string): Promise<Menu[]> {
   const res = await magentoFetch<MagentoMenuOperation>({
     query: getMenuQuery,
