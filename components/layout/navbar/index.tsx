@@ -3,7 +3,6 @@ import { default as BigCommerceSearch } from 'bigCommerceComponents/layout/navba
 import OpenCart from 'components/cart/open-cart';
 import LogoSquare from 'components/logo-square';
 import { BUILDER_KEY } from 'lib/constants';
-import { getDesktopMenu, getMenu } from 'lib/magento';
 import { default as MagentoCart } from 'magentoComponents/cart';
 import { default as MagentoSearch } from 'magentoComponents/layout/navbar/search';
 import Link from 'next/link';
@@ -27,9 +26,6 @@ declare var process: {
 builder.init(BUILDER_KEY);
 
 export default async function Navbar() {
-  const menu = await getMenu('next-js-frontend-header-menu');
-  const categoryList = await getDesktopMenu('next-js-frontend-header-menu');
-
   const navigationContent = await builder
     // Get the page content from Builder with the specified options
     .get('navigation', {
