@@ -10,6 +10,7 @@ declare var process: {
     BUILDER_PUBLIC_KEY: string;
     PLATFORM_TYPE: string;
     ECOMMERCE_PLATFORM: string;
+    MAGENTO_STORE_URL:string;
   };
 };
 builder.init(process.env.BUILDER_PUBLIC_KEY);
@@ -69,6 +70,8 @@ export default async function HomePage() {
         className="mx-auto min-h-screen w-full max-w-screen-2xl p-4"
         dangerouslySetInnerHTML={{ __html: homePageContent?.data?.cmsPage?.content }}
       /> */}
+      <div>{process.env.ECOMMERCE_PLATFORM}</div>
+      <div>{process.env.MAGENTO_STORE_URL}</div>
       <RenderBuilderContent content={content} model="page" />
     </>
   );
